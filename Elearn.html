@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Learning Platform</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Segoe UI,Arial,sans-serif;
+  background:#f1f5f9;
+  color:#1f2937;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(90deg,#7c3aed,#2563eb);
+  color:#fff;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+nav a{
+  color:#fff;
+  margin-left:15px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+/* SECTIONS */
+section{
+  display:none;
+  padding:40px 20px;
+  max-width:1200px;
+  margin:auto;
+}
+section.active{display:block}
+
+h2{
+  text-align:center;
+  margin-bottom:30px;
+  color:#2563eb;
+}
+
+/* SLIDER */
+.slider{
+  position:relative;
+  height:260px;
+  border-radius:15px;
+  overflow:hidden;
+  margin-bottom:40px;
+}
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:2rem;
+  font-weight:bold;
+}
+.slide.active{display:flex}
+.slide1{background:linear-gradient(120deg,#22c55e,#16a34a)}
+.slide2{background:linear-gradient(120deg,#3b82f6,#1d4ed8)}
+.slide3{background:linear-gradient(120deg,#f97316,#ea580c)}
+
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+.card{
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+/* BUTTON */
+.btn{
+  margin-top:12px;
+  padding:10px 18px;
+  background:#2563eb;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* VIDEO */
+.video iframe{
+  width:100%;
+  height:340px;
+  border-radius:12px;
+}
+
+/* PROGRESS */
+.progress-bar{
+  background:#e5e7eb;
+  border-radius:30px;
+  overflow:hidden;
+  margin-top:10px;
+}
+.progress-fill{
+  background:linear-gradient(90deg,#22c55e,#16a34a);
+  width:40%;
+  color:#fff;
+  text-align:center;
+  padding:8px;
+}
+
+/* INSTRUCTOR */
+.instructor{
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+.instructor img{
+  width:120px;
+  border-radius:50%;
+}
+
+/* FAQ */
+.faq{
+  background:#eff6ff;
+  border-left:6px solid #2563eb;
+  padding:15px;
+  margin-bottom:15px;
+}
+
+/* FOOTER */
+footer{
+  background:#1f2937;
+  color:#9ca3af;
+  text-align:center;
+  padding:15px;
+  margin-top:40px;
+}
+
+@media(max-width:600px){
+  .video iframe{height:220px}
+  .instructor{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>E-Learning Platform</h1>
+  <nav>
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('course')">Course</a>
+    <a href="#" onclick="showPage('dashboard')">Dashboard</a>
+  </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="active">
+
+  <!-- SLIDER -->
+  <div class="slider">
+    <div class="slide slide1 active">Learn Anytime, Anywhere</div>
+    <div class="slide slide2">Industry Expert Courses</div>
+    <div class="slide slide3">Track Your Progress</div>
+  </div>
+
+  <h2>Popular Courses</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Web Development</h3>
+      <p>HTML, CSS, JavaScript, Projects</p>
+      <button class="btn" onclick="showPage('course')">View</button>
+    </div>
+    <div class="card">
+      <h3>Python Programming</h3>
+      <p>Beginner to Advanced</p>
+      <button class="btn">View</button>
+    </div>
+    <div class="card">
+      <h3>Data Structures</h3>
+      <p>Logic, Algorithms, Coding</p>
+      <button class="btn">View</button>
+    </div>
+  </div>
+
+  <br><br>
+
+  <h2>Why Choose Us?</h2>
+  <div class="grid">
+    <div class="card">🎓 Certified Courses</div>
+    <div class="card">🧑‍🏫 Expert Mentors</div>
+    <div class="card">📱 Mobile Friendly</div>
+    <div class="card">🏆 Certificates</div>
+  </div>
+
+</section>
+
+<!-- COURSE -->
+<section id="course">
+
+  <h2>Web Development Course</h2>
+
+  <div class="video">
+    <iframe src="https://www.youtube.com/embed/UB1O30fR-EE"
+      allowfullscreen></iframe>
+  </div>
+
+  <button class="btn" onclick="completeLesson()">Mark Lesson Complete</button>
+
+  <br><br>
+
+  <div class="card">
+    <h3>Syllabus</h3>
+    <ul>
+      <li>HTML Basics</li>
+      <li>CSS Styling</li>
+      <li>Responsive Design</li>
+      <li>JavaScript Fundamentals</li>
+      <li>Final Project</li>
+    </ul>
+  </div>
+
+  <br>
+
+  <div class="card instructor">
+    <img src="https://i.pravatar.cc/200?img=12">
+    <div>
+      <h3>Instructor</h3>
+      <p><strong>Mr. Ankit Verma</strong></p>
+      <p>Senior Front-End Engineer (10+ years)</p>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="card">
+    <h3>Student Reviews</h3>
+    ⭐⭐⭐⭐⭐ Excellent course<br>
+    ⭐⭐⭐⭐ Very beginner friendly<br>
+    ⭐⭐⭐⭐⭐ Loved the projects
+  </div>
+
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+  <h2>My Dashboard</h2>
+
+  <div class="card">
+    <p><strong>Web Development Progress</strong></p>
+    <div class="progress-bar">
+      <div id="progressFill" class="progress-fill">40%</div>
+    </div>
+    <p>Lessons Completed: <span id="lesson">4</span>/10</p>
+  </div>
+
+  <br>
+
+  <div class="card">
+    <h3>FAQ</h3>
+    <div class="faq">❓ How long is the course? → 8 Weeks</div>
+    <div class="faq">❓ Certificate available? → Yes</div>
+    <div class="faq">❓ Lifetime access? → Yes</div>
+  </div>
+</section>
+
+<footer>
+  © 2025 E-Learning Platform
+</footer>
+
+<script>
+let slides=document.querySelectorAll(".slide");
+let index=0;
+setInterval(()=>{
+  slides[index].classList.remove("active");
+  index=(index+1)%slides.length;
+  slides[index].classList.add("active");
+},3000);
+
+let progress=40,lesson=4;
+function showPage(id){
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+function completeLesson(){
+  if(progress<100){
+    progress+=10;lesson++;
+    document.getElementById("progressFill").style.width=progress+"%";
+    document.getElementById("progressFill").innerText=progress+"%";
+    document.getElementById("lesson").innerText=lesson;
+  }
+}
+</script>
+
+</body>
+</html>
